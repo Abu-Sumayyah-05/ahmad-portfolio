@@ -12,7 +12,7 @@ const NavItems = [
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,30 +22,61 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close menu on resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setIsMenuOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <nav className={cn('fixed w-full z-40 transition-all duration-300', isScrolled ? 'py-3 bg-background/80 backdrop-blur-md shadow-xs' : 'py-5')}>
+    <nav className={cn('fixed w-full z-40 transition-all duration-300', isScrolled ? 'py-3 bg-background/90 backdrop-blur-md shadow-sm' : 'py-4 md:py-5')}>
       <div className='container flex justify-between items-center'>
-        <a href='#hero' className='text-xl font-bold flex items-center text-primary'>
-          <span className='relative z-10'></span>{' '}
-          <span className='text-glow text-foreground'>Ahmad(Sunnitech)</span> Portfolio
+        <a href='#hero' className='text-lg md:text-xl font-bold flex items-center gap-2' onClick={() => setIsMenuOpen(false)}>
+          <span className="text-primary">Ahmad</span>
+          <span className='text-foreground hidden sm:inline'>(Sunnitech)</span>
         </a>
-        {/* desktop nav */}
-        <div className='hidden md:flex items-center space-x-8'>
-          {NavItems.map((item, key) => (
-            <a key={key} href={item.href} className='text-foreground/80 hover:text-primary transition-colors duration-300 mr-15'>
+        
+        {/* Desktop nav */}
+        <div className='hidden md:flex items-center space-x-6 lg:space-x-8'>
+          {NavItems.map((item) => (
+            <a 
+              key={item.name} 
+              href={item.href} 
+              className='text-sm lg:text-base text-foreground/80 hover:text-primary transition-colors duration-300'
+            >
               {item.name}
             </a>
           ))}
         </div>
-        {/* mobile nav */}
+
+        {/* Mobile menu button */}
         <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className='md:hidden p-2 text-foreground z-50'
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className='md:hidden p-2 text-foreground hover:text-primary transition-colors'
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 top-[60px] bg-background/98 backdrop-blur-lg z-30 md:hidden flex flex-col items-center justify-start pt-12 space-y-6 animate-fade-in">
+          {NavItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={() => setIsMenuOpen(false)}
+              className="text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };

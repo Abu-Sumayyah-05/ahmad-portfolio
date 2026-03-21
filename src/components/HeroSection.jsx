@@ -12,7 +12,7 @@ export const HeroSection = () => {
           </h1>
           
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3 px-2 sm:px-4 leading-relaxed">
-            Frontend Developer specializing in React and TypeScript. I build responsive, scalable, and user-focused web applications with clean architecture and modern design principles.
+            Frontend Developer specializing in NEXT Js, VUE JS, and TypeScript. I build responsive, scalable, and user-focused web applications with clean architecture and modern design principles.
           </p>
           
           <div className="pt-4 md:pt-6 opacity-0 animate-fade-in-delay-4 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">

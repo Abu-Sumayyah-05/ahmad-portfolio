@@ -32,7 +32,7 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className={cn('fixed w-full z-40 transition-all duration-300', isScrolled ? 'py-3 bg-background/90 backdrop-blur-md shadow-sm' : 'py-4 md:py-5')}>
+    <nav className={cn('fixed w-full z-40 transition-all duration-300', isScrolled ? 'py-3 bg-background/90 backdrop-blur-md  shadow-sm' : 'py-4 md:py-5')}>
       <div className='container flex justify-between items-center'>
         <a href='#hero' className='text-lg md:text-xl font-bold flex items-center gap-2' onClick={() => setIsMenuOpen(false)}>
           <span className="text-primary">Ahmad</span>

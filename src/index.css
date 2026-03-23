@@ -1,3 +1,12 @@
+@media (min-width: 970px) {
+  .custom-navbar-container {
+    max-width: 974px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+}
 @import "tailwindcss";
 
 @theme {

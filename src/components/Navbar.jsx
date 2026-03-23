@@ -14,6 +14,19 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Disable scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -33,7 +46,7 @@ export const Navbar = () => {
 
   return (
     <nav className={cn('fixed w-full z-40 transition-all duration-300', isScrolled ? 'py-3 bg-background/90 backdrop-blur-md  shadow-sm' : 'py-4 md:py-5')}>
-      <div className='container flex justify-between items-center'>
+      <div className='container flex justify-between items-center px-4 md:px-8 custom-navbar-container'>
         <a href='#hero' className='text-lg md:text-xl font-bold flex items-center gap-2' onClick={() => setIsMenuOpen(false)}>
           <span className="text-primary">Ahmad</span>
           <span className='text-foreground hidden sm:inline'>(Sunnitech)</span>
@@ -64,12 +77,15 @@ export const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 top-[60px] bg-background/98 backdrop-blur-lg z-30 md:hidden flex flex-col items-center justify-start pt-12 space-y-6 animate-fade-in">
+        <div className="fixed inset-0 top-[60px] bg-black bg-opacity-95 backdrop-blur-lg z-30 md:hidden flex flex-col items-center justify-start pt-12 space-y-6 animate-fade-in">
           {NavItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => {
+                setIsMenuOpen(false);
+                document.body.style.overflow = '';
+              }}
               className="text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
             >
               {item.name}
@@ -79,4 +95,4 @@ export const Navbar = () => {
       )}
     </nav>
   );
-};
+};   

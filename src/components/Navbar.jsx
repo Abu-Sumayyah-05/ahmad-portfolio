@@ -97,6 +97,10 @@ export const Navbar = () => {
               {item.name}
             </a>
           ))}
+          {/* Theme Toggle on Mobile */}
+          <div className="mt-4">
+            <ThemeToggle />
+          </div>
         </div>
       )}
     </nav>

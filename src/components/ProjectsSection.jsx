@@ -28,6 +28,15 @@ const projects = [
     demoUrl: 'https://markdown-vuepp.netlify.app/',
     githubUrl: 'https://github.com/Abu-Sumayyah-05/markdown-vue-project',
   },
+  {
+  id: 4,
+  title: 'Solar IQ Energy Efficiency Monitoring System',
+  description: 'A real-time solar energy monitoring system designed to track, analyze, and visualize energy efficiency performance. It provides users with insights into power generation, consumption trends, and system efficiency through an interactive dashboard.',
+  image: '/public/Projects/project4.png',
+  tags: ['React', 'TypeScript', 'Data Visualization', 'Dashboard UI', 'IoT Concept'],
+  demoUrl: 'https://solarefficiencymonitoringsystem.netlify.app/',
+  githubUrl: 'https://github.com/Abu-Sumayyah-05/solar-monitoring-system'
+}
 ];
 
 export const ProjectsSection = () => {

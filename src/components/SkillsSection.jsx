@@ -2,27 +2,23 @@ import { cn } from '../lib/utils';
 import { useState } from 'react';
 
 const skills = [
-  { name: 'HTML/CSS', level: 95, category: 'frontend' },
-  { name: 'JavaScript', level: 85, category: 'frontend' },
-  { name: 'React', level: 80, category: 'frontend' },
-  { name: 'Vue', level: 75, category: 'frontend' },
-  { name: 'TypeScript', level: 70, category: 'frontend' },
-  { name: 'Tailwind CSS', level: 85, category: 'frontend' },
-  { name: 'Git', level: 90, category: 'tools' },
-  { name: 'GitHub', level: 70, category: 'tools' },
-  { name: 'VS Code', level: 95, category: 'tools' },
-  { name: 'Vite', level: 80, category: 'tools' },
-  { name: 'Figma', level: 70, category: 'tools' },
-  { name: 'Postman', level: 75, category: 'tools' },
-  { name: 'Chrome DevTools', level: 90, category: 'tools' },
-  { name: 'Problem Solving', level: 85, category: 'engineering' },
-  { name: 'System Design', level: 75, category: 'engineering' },
-  { name: 'Circuit Analysis', level: 70, category: 'engineering' },
-  { name: 'Software-Hardware Integration', level: 70, category: 'engineering' },
-  { name: 'Git Workflow', level: 80, category: 'deployment' },
-  { name: 'Netlify', level: 70, category: 'deployment' },
-  { name: 'Vercel', level: 70, category: 'deployment' },
-  { name: 'Environment Configuration', level: 65, category: 'deployment' },
+  { name: 'HTML/CSS', level: 'Advanced', category: 'frontend' },
+  { name: 'JavaScript', level: 'Advanced', category: 'frontend' },
+  { name: 'React', level: 'Advanced', category: 'frontend' },
+  { name: 'Vue', level: 'Proficient', category: 'frontend' },
+  { name: 'TypeScript', level: 'Proficient', category: 'frontend' },
+  { name: 'Tailwind CSS', level: 'Advanced', category: 'frontend' },
+  { name: 'Git & GitHub', level: 'Advanced', category: 'tools' },
+  { name: 'VS Code', level: 'Advanced', category: 'tools' },
+  { name: 'Figma', level: 'Proficient', category: 'tools' },
+  { name: 'Postman', level: 'Proficient', category: 'tools' },
+  { name: 'Vite', level: 'Advanced', category: 'tools' },
+  { name: 'Chrome DevTools', level: 'Advanced', category: 'tools' },
+  { name: 'REST API Integration', level: 'Advanced', category: 'tools' },
+  { name: 'Netlify', level: 'Proficient', category: 'deployment' },
+  { name: 'Vercel', level: 'Proficient', category: 'deployment' },
+  { name: 'Render', level: 'Proficient', category: 'deployment' },
+  { name: 'Environment Configuration', level: 'Proficient', category: 'deployment' },
 ];
 
 const categories = ['all', 'frontend', 'tools', 'engineering', 'deployment'];
@@ -58,10 +54,10 @@ export const SkillsSection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 lg:gap-6">
           {filteredSkills.map((skill) => (
             <div key={skill.name} className="bg-card rounded-lg p-4 md:p-5 shadow-sm border border-border">
-              <div className="flex justify-between items-center mb-2">
-                <h4 className="font-semibold text-sm md:text-base">{skill.name}</h4>
-                <span className="text-xs md:text-sm text-muted-foreground font-medium">{skill.level}%</span>
-              </div>
+          <div className="flex justify-between items-center mb-2">
+           <h4 className="font-semibold text-sm md:text-base">{skill.name}</h4>
+           <span className="text-xs md:text-sm text-primary font-medium">{skill.level}</span>
+            </div>
               <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
                 <div 
                   className="bg-primary h-full rounded-full transition-all duration-500" 

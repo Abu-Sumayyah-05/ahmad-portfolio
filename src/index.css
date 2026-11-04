@@ -329,3 +329,10 @@
 /* Set by main.jsx on the first in-page link click: render everything for real so the
    browser scrolls to the exact position instead of one based on estimated heights. */
 .render-all .defer-render { content-visibility: visible; }
+
+/* Pulsing ring around the video play button */
+.play-ring { animation: play-ring 2.2s ease-out infinite; will-change: transform, opacity; }
+@keyframes play-ring {
+  0% { transform: scale(1); opacity: .55; }
+  80%, 100% { transform: scale(1.7); opacity: 0; }
+}

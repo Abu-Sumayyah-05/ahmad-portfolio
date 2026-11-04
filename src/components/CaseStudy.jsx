@@ -1,4 +1,5 @@
 import { useInView } from '../hooks/useInView';
+import { WalkthroughVideo } from './WalkthroughVideo';
 import { cn } from '../lib/utils';
 
 const kindLabel = {
@@ -76,16 +77,20 @@ export const CaseStudy = ({ project, index, ref }) => {
               <i className="size-2 rounded-full bg-black/15" />
               <span className="ml-3 truncate rounded bg-black/5 px-2 py-0.5 font-mono text-[.62rem] text-black/55">{host}</span>
             </div>
-            <img
-              src={project.image}
-              alt={`Screenshot of ${project.title}`}
-              width={w}
-              height={h}
-              loading="lazy"
-              decoding="async"
-              style={{ aspectRatio: `${w} / ${h}` }}
-              className="block w-full object-cover object-top"
-            />
+            {project.video ? (
+              <WalkthroughVideo video={project.video} title={project.title} />
+            ) : (
+              <img
+                src={project.image}
+                alt={`Screenshot of ${project.title}`}
+                width={w}
+                height={h}
+                loading="lazy"
+                decoding="async"
+                style={{ aspectRatio: `${w} / ${h}` }}
+                className="block w-full object-cover object-top"
+              />
+            )}
           </figure>
         </div>
       </div>

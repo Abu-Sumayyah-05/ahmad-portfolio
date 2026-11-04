@@ -70,6 +70,8 @@ export const featured = [
       ['Beyond code', 'SEO (sitemap, robots.txt, Search Console), domain and an 8-mailbox Zoho email setup with a handover guide'],
     ],
     image: '/projects/dtbb.webp',
+    // Screen recording of the live site (no sound). Loads only when someone presses play.
+    video: { src: '/projects/dtbb-walkthrough.mp4', poster: '/projects/dtbb-walkthrough-poster.webp', size: [1280, 720], duration: '1:15' },
     link: { label: 'Visit dtbblogistics.com', href: 'https://dtbblogistics.com' },
   },
   {

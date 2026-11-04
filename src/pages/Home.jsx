@@ -1,27 +1,25 @@
-import { StarBackground } from "../components/StarBackground";
-import { Navbar } from "../components/Navbar";
-import { HeroSection } from "../components/HeroSection";
-import { AboutSection } from "../components/AboutSection";
-import { SkillsSection } from "../components/SkillsSection";
-import { ProjectsSection } from "../components/ProjectsSection";
-import { ContactSection } from "../components/ContactSection";
+import { Navbar } from '../components/Navbar';
+import { Hero } from '../components/Hero';
+import { Marquee } from '../components/Marquee';
+import { About } from '../components/About';
+import { Work } from '../components/Work';
+import { Skills } from '../components/Skills';
+import { Journey } from '../components/Journey';
+import { Contact } from '../components/Contact';
+import { Footer } from '../components/Footer';
 
-export const Home = () => {
-    return (
-        <div className="min-h-screen container">
-            {/* Background Effects */}
-            <StarBackground />
-            {/* Navbar */}
-            <Navbar />
-            {/* Main Content */}
-            <main>
-                <HeroSection />
-                <AboutSection />
-                <SkillsSection />
-                <ProjectsSection />
-                <ContactSection />
-            </main>
-            {/* Footer */}
-        </div>
-    );
-};
+export const Home = () => (
+  <>
+    <Navbar />
+    <main>
+      <Hero />
+      <Marquee />
+      <About />
+      <Work />
+      <Skills />
+      <Journey />
+      <Contact />
+    </main>
+    <Footer />
+  </>
+);

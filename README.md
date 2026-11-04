@@ -1,17 +1,56 @@
-# React + Vite
+# Ahmad Subair — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio site built with React 19, Vite and Tailwind CSS v4.
 
-Currently, two official plugins are available:
+## Getting started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+npm run dev      # start the dev server at http://localhost:5173
+npm run build    # production build into dist/
+npm run preview  # serve the production build locally
+```
 
-## React Compiler
+## Contact form
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The contact form sends messages through [EmailJS](https://www.emailjs.com/) when these
+variables are set (in a local `.env` file or in your hosting provider's settings):
 
-## Expanding the ESLint configuration
+```
+VITE_EMAILJS_SERVICE_ID=...
+VITE_EMAILJS_TEMPLATE_ID=...
+VITE_EMAILJS_PUBLIC_KEY=...
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# ahmad-portfolio
+EmailJS's built-in "Contact Us" template works as is (the form sends `name`, `email`, `title`, `time` and `message`, plus `from_name`, `from_email` and `reply_to`). Without
+these variables the form falls back to opening the visitor's email app with the
+message pre-filled.
+
+## Editing content
+
+All text, links and projects live in `src/data/`:
+
+```
+src/data/site.js       name, email, CV path, nav links, palettes, marquee stack
+src/data/projects.js   featured case studies, "more things I've built", hidden projects
+src/data/skills.js     skill groups and the journey timeline
+```
+
+Project screenshots go in `public/projects/` (WebP, 1280×800 works well).
+
+## Project structure
+
+```
+public/            CV, favicon, share image, screenshots, robots.txt, sitemap.xml
+src/components/    page sections (Hero, About, Work, Skills, Journey, Contact, Footer)
+                   plus building blocks (Rosette, ThemeSwitcher, Cursor, Reveal...)
+src/hooks/         useInView, useMagnetic
+src/index.css      the three palettes (Adire, Clay, Signal), animations and utilities
+```
+
+## Updating the CV
+
+The CV is built from `cv/cv.html` (same fonts and colours as the site). To update it,
+edit that file, open it in Chrome or Edge, choose **Print → Save as PDF** with paper
+size **A4**, margins **None** and **Background graphics** on, and save it over
+`public/Ahmad_Subair_CV.pdf`.

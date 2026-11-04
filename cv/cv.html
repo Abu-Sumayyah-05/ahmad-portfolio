@@ -1,0 +1,329 @@
+<!doctype html>
+<!--
+  Source for public/Ahmad_Subair_CV.pdf.
+  To update: edit this file, open it in Chrome or Edge, Print → Save as PDF
+  (Paper: A4, Margins: None, Background graphics: on), and save it over the PDF in /public.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Ahmad Subair — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* Print-friendly take on the portfolio's Adire palette: indigo + vermilion on white */
+  :root {
+    --indigo: #0d1130;
+    --indigo-2: #1b2266;
+    --accent: #e8492a;      /* slightly deeper vermilion so it prints with good contrast */
+    --accent-soft: #ffb199;
+    --ink: #161830;
+    --muted: #55576f;
+    --line: #e4e1da;
+    --paper: #faf8f4;
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Hanken Grotesk", Arial, sans-serif;
+    --mono: "JetBrains Mono", Consolas, monospace;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: var(--sans); color: var(--ink); font-size: 9.2pt; line-height: 1.42; background: #fff; }
+  a { color: inherit; text-decoration: none; }
+
+  .page { width: 210mm; min-height: 297mm; position: relative; overflow: hidden; }
+  .page + .page { break-before: page; }
+  .body { padding: 9mm 15mm 12mm; }
+
+  /* ---------- Header band ---------- */
+  /* Note: avoid position: relative on anything holding text. Chrome writes positioned elements
+     to the PDF last, which scrambles the reading order for applicant tracking systems. */
+  header {
+    background: var(--indigo); color: #f1ece2;
+    padding: 13mm 15mm 10mm;
+  }
+  header .rosette { position: absolute; right: -12mm; top: -16mm; width: 78mm; height: 78mm; opacity: .9; }
+  .eyebrow { font-family: var(--mono); font-size: 7.4pt; letter-spacing: .05em; text-transform: uppercase; color: var(--accent-soft); }
+  h1 { font-family: var(--serif); font-weight: 380; font-size: 34pt; line-height: 1; letter-spacing: -.01em; margin-top: 3mm; }
+  h1 em { font-style: italic; font-weight: 300; color: var(--accent-soft); font-size: .62em; margin-left: 2mm; }
+  .role { font-family: var(--serif); font-style: italic; font-size: 14pt; font-weight: 300; margin-top: 2mm; color: #ffd2c4; }
+  .contact { display: flex; flex-wrap: wrap; gap: 1.2mm 5mm; margin-top: 6mm; font-size: 8.4pt; color: #d9d6ea; max-width: 150mm; }
+  .contact span::before { content: "◆"; color: var(--accent); font-size: 6pt; margin-right: 1.6mm; vertical-align: 1px; }
+
+  /* ---------- Sections ---------- */
+  section { margin-top: 5.5mm; }
+  .label {
+    display: flex; align-items: center; gap: 3mm;
+    font-family: var(--mono); font-size: 7.4pt; letter-spacing: .05em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 3mm;
+  }
+  .label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  .summary { font-size: 10pt; line-height: 1.55; color: #2c2e48; }
+  .summary b { font-weight: 600; color: var(--ink); }
+
+  /* Experience / project entries */
+  .entry { break-inside: avoid; padding-left: 4.5mm; }
+  .entry + .entry { margin-top: 3.8mm; }
+  .entry::before { /* small diamond marker, echoing the site's timeline */
+    content: ""; float: left; margin: 1.7mm 0 0 -4.5mm;
+    width: 1.8mm; height: 1.8mm; transform: rotate(45deg); border: 1px solid var(--accent);
+  }
+  .entry.filled::before { background: var(--accent); }
+  .head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+  .head h3 { font-family: var(--serif); font-weight: 500; font-size: 12pt; line-height: 1.2; }
+  .when { font-family: var(--mono); font-size: 7.4pt; color: var(--muted); white-space: nowrap; letter-spacing: .04em; }
+  .org { font-size: 8.8pt; color: var(--indigo-2); font-weight: 600; margin-top: .4mm; }
+  .org a { border-bottom: 1px solid #c9cbe6; }
+  .tag { display: inline-block; font-family: var(--mono); font-size: 6.6pt; letter-spacing: .1em; text-transform: uppercase; padding: .5mm 1.6mm; margin-left: 1.5mm; vertical-align: 1px; border: 1px solid #d8d6e8; color: var(--muted); }
+  .tag.win { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .stack { font-family: var(--mono); font-size: 7.2pt; color: var(--muted); margin-top: .8mm; }
+  ul.points { margin-top: 1.4mm; list-style: none; }
+  ul.points li { padding-left: 3.4mm; margin-top: .8mm; color: #2c2e48; }
+  ul.points li::before { content: ""; float: left; margin: 2.1mm 0 0 -3.4mm; width: 1.4mm; height: 1px; background: var(--accent); }
+
+  /* Projects in two columns on page 2 */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5mm 8mm; }
+  .grid-2 .entry + .entry, .edu .entry + .entry { margin-top: 0; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm 8mm; }
+  .skill h4 { font-family: var(--mono); font-size: 7.2pt; letter-spacing: .05em; text-transform: uppercase; color: var(--indigo-2); margin-bottom: 1.2mm; }
+  .skill p { color: #2c2e48; }
+  .skill p span.also { color: var(--muted); }
+  .skill.learning { grid-column: 1 / -1; background: var(--paper); border-left: 2px solid var(--accent); padding: 2.6mm 3.5mm; }
+
+  /* Education */
+  .edu { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm 8mm; align-items: start; }
+  .body > section:first-child { margin-top: 0; }
+
+  footer {
+    position: absolute; left: 15mm; right: 15mm; bottom: 7mm;
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 6.8pt; letter-spacing: .04em; text-transform: uppercase; color: #9a9bb0;
+    border-top: 1px solid var(--line); padding-top: 2.2mm;
+  }
+  footer b { color: var(--accent); font-weight: 500; }
+
+  /* Small header strip on page 2 */
+  .mini { display: flex; justify-content: space-between; align-items: center; padding: 8mm 15mm 0; }
+  .mini .name { font-family: var(--serif); font-size: 13pt; }
+  .mini .name em { color: var(--accent); font-style: italic; font-weight: 300; }
+</style>
+</head>
+<body>
+
+<!-- =========================== PAGE 1 =========================== -->
+<div class="page">
+  <header>
+    <!-- Rosette with circuit traces: the portfolio's emblem, drawn inline so it stays crisp in print -->
+    <svg class="rosette" viewBox="0 0 500 500" aria-hidden="true">
+      <g fill="none" stroke="#ffb199" stroke-opacity=".35" stroke-width="1.6">
+        <path d="M388.6 307.4L434.8 326.5L419.5 363.5L456.4 378.8" /><path d="M307.4 388.6L326.5 434.8L363.5 419.5L378.8 456.4" />
+        <path d="M192.6 388.6L173.5 434.8L136.5 419.5L121.2 456.4" /><path d="M111.4 307.4L65.2 326.5L80.5 363.5L43.6 378.8" />
+        <path d="M111.4 192.6L65.2 173.5L80.5 136.5L43.6 121.2" /><path d="M192.6 111.4L173.5 65.2L136.5 80.5L121.2 43.6" />
+      </g>
+      <circle cx="250" cy="250" r="150" fill="none" stroke="#ffb199" stroke-opacity=".3" />
+      <path d="M400 250L342.4 288.3L356.1 356.1L288.3 342.4L250 400L211.7 342.4L143.9 356.1L157.6 288.3L100 250L157.6 211.7L143.9 143.9L211.7 157.6L250 100L288.3 157.6L356.1 143.9L342.4 211.7Z" fill="none" stroke="#ffb199" stroke-opacity=".55" stroke-width="1.6" />
+      <path d="M388.6 307.4L326.5 326.5L307.4 388.6L250 358.6L192.6 388.6L173.5 326.5L111.4 307.4L141.4 250L111.4 192.6L173.5 173.5L192.6 111.4L250 141.4L307.4 111.4L326.5 173.5L388.6 192.6L358.6 250Z" fill="none" stroke="#ffb199" stroke-opacity=".25" />
+      <path d="M350 250L307.3 273.7L320.7 320.7L273.7 307.3L250 350L226.3 307.3L179.3 320.7L192.7 273.7L150 250L192.7 226.3L179.3 179.3L226.3 192.7L250 150L273.7 192.7L320.7 179.3L307.3 226.3Z" fill="rgba(232,73,42,.12)" stroke="#e8492a" stroke-width="1.6" />
+      <path d="M303.6 272.2L277.7 277.7L272.2 303.6L250 289L227.8 303.6L222.3 277.7L196.4 272.2L211 250L196.4 227.8L222.3 222.3L227.8 196.4L250 211L272.2 196.4L277.7 222.3L303.6 227.8L289 250Z" fill="#e8492a" />
+      <circle cx="250" cy="250" r="10" fill="#0d1130" />
+    </svg>
+
+    <p class="eyebrow">Curriculum vitae · Lagos, Nigeria</p>
+    <h1>Ahmad Subair <em>Abu Sumayyah</em></h1>
+    <p class="role">Full-Stack Developer · Electronic &amp; Computer Engineering student</p>
+    <div class="contact">
+      <span><a href="mailto:ahmadsubair2005@gmail.com">ahmadsubair2005@gmail.com</a></span>
+      <span><a href="tel:+2347049567031">+234 704 956 7031</a></span>
+      <span><a href="https://ahmadsubair.netlify.app">ahmadsubair.netlify.app</a></span>
+      <span><a href="https://github.com/Abu-Sumayyah-05">github.com/Abu-Sumayyah-05</a></span>
+      <span><a href="https://www.linkedin.com/in/ahmad-subair-03a997339/">linkedin.com/in/ahmad-subair-03a997339</a></span>
+    </div>
+  </header>
+
+  <div class="body">
+    <section>
+      <p class="label">Profile</p>
+      <p class="summary">
+        Full-stack developer in Lagos, <b>strongest on the frontend</b> with React, Next.js and TypeScript, and building
+        backends with <b>Node.js, Express and PostgreSQL</b>. I ship production software that people use every day:
+        a multi-tenant school management platform at A4 Technologies, student-facing portals at Quant, and complete client
+        websites, all designed for Nigerian users on unreliable connections. I'm also studying Electronic &amp; Computer
+        Engineering at LASU, training as a backend engineer on a fintech track, and was part of the team that
+        <b>won the Nexus Hackathon</b> with SolarIQ. Alongside commercial work, I build tools for the Muslim community:
+        Islamic resource sites, scholarly content platforms and madrasah tooling.
+      </p>
+    </section>
+
+    <section>
+      <p class="label">Experience</p>
+
+      <div class="entry filled">
+        <div class="head"><h3>Frontend Developer (Contract)</h3><span class="when">Mar 2026 — Present</span></div>
+        <p class="org">A4 Technologies, Lagos · <a href="https://edugear.ng">EduGear (edugear.ng)</a></p>
+        <ul class="points">
+          <li>Frontend implementation and UI integration lead on EduGear, a multi-tenant school management SaaS for Nigerian secondary schools.</li>
+          <li>Built role-based dashboards for Admin, Principal, Bursar, Teacher and Parent, covering fee tracking and finance, results and a parent portal.</li>
+          <li>Turned Google Stitch designs into production Next.js and TypeScript screens, using TanStack Query against a NestJS, Prisma and PostgreSQL API, kept light enough for low-bandwidth school connections.</li>
+        </ul>
+      </div>
+
+      <div class="entry filled">
+        <div class="head"><h3>React Frontend Developer</h3><span class="when">May 2025 — Present</span></div>
+        <p class="org"><a href="https://getquant.app">Quant (getquant.app)</a> · formerly TALIB-HQ · AI study assistant for Nigerian university students on WhatsApp</p>
+        <ul class="points">
+          <li>Built the Campus Scholar portal at scholars.getquant.app, where students upload course materials, earn points and redeem rewards.</li>
+          <li>Built the admin portal and wired the REST API into the interface page by page.</li>
+          <li>Built the Welcome and OTP email templates in React, and led the hosting migration from Render to Netlify.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="head"><h3>Freelance Web Developer</h3><span class="when">Client work</span></div>
+        <p class="org"><a href="https://dtbblogistics.com">D'TBB Logistics &amp; Consult (dtbblogistics.com)</a></p>
+        <ul class="points">
+          <li>Designed, built and deployed the company's full website on my own: fleet gallery with lightbox, EmailJS quote form and a Google Maps contact page, in React, TypeScript, Tailwind CSS and Vite.</li>
+          <li>Set up SEO (sitemap, robots.txt, Google Search Console), the domain and an 8-mailbox Zoho company email (MX, SPF, DKIM), then handed over with a written guide.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">Currently learning</p>
+      <div class="skills">
+        <div class="skill learning">
+                    <p>Payment systems: rails (NIP, RTGS, ACH, SWIFT, PAPSS), the four-party card model, double-entry accounting and reconciliation · AI and LLM applications · Python</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer><span>Ahmad Subair · Full-Stack Developer</span><span><b>◆</b> Circuits by day · Code by night</span><span>1 / 2</span></footer>
+</div>
+
+<!-- =========================== PAGE 2 =========================== -->
+<div class="page">
+  <div class="mini">
+    <span class="name">Ahmad Subair <em>· skills &amp; projects</em></span>
+    <span class="eyebrow" style="color: var(--muted)">ahmadsubair.netlify.app</span>
+  </div>
+
+  <div class="body" style="padding-top: 2mm">
+    <section>
+      <p class="label">Skills</p>
+      <div class="skills">
+        <div class="skill">
+          <h4>Frontend</h4>
+          <p>React, Next.js (App Router), TypeScript, JavaScript, Tailwind CSS v4, Vite, TanStack Query, Zustand, React Native, HTML &amp; CSS <span class="also">· also Vue</span></p>
+        </div>
+        <div class="skill">
+          <h4>Backend</h4>
+          <p>Node.js, Express, PostgreSQL, REST API design, JWT auth (access + refresh tokens), WebSockets <span class="also">· worked with NestJS + Prisma, Django Channels, Firebase</span></p>
+        </div>
+        <div class="skill">
+          <h4>Ship &amp; tooling</h4>
+          <p>Netlify, Render, Railway, Vercel, Git &amp; GitHub, DNS and email (Zoho, MX/SPF/DKIM), SEO and Search Console, EmailJS, Postman</p>
+        </div>
+        <div class="skill">
+          <h4>Design</h4>
+          <p>Figma and Google Stitch designs to production code, design systems, typography, responsive and accessible interfaces</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <p class="label">Selected projects</p>
+      <div class="grid-2">
+        <div class="entry filled">
+          <div class="head"><h3>SolarIQ <span class="tag win">Nexus Hackathon winner</span></h3></div>
+          <p class="org"><a href="https://solarefficiencymonitoringsystem.netlify.app">Solar panel efficiency monitor</a> · team project</p>
+          <p class="stack">React · Vite · Tailwind CSS · Firebase Realtime Database</p>
+          <ul class="points">
+            <li>Built the dashboard and Firebase data layer: expected vs. actual power, efficiency and soiling ratio, panel condition and cleaning status.</li>
+            <li>Efficiency reports from live sensor data; the ESP32 hardware was built by teammates.</li>
+          </ul>
+        </div>
+
+        <div class="entry filled">
+          <div class="head"><h3>Al Qanitaat <span class="tag">Live</span></h3></div>
+          <p class="org"><a href="https://al-qanitaat.onrender.com/">Islamic knowledge platform for Muslim women</a> · own project, with friends</p>
+          <p class="stack">React · Tailwind CSS · Node.js · Express · PostgreSQL · Render</p>
+          <ul class="points">
+            <li>Built every part myself: React frontend, Node/Express API, PostgreSQL database and deployment on Render.</li>
+            <li>Articles organised by topic, featured articles, a resources section and an admin content editor for publishing.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="head"><h3>TeachSense</h3></div>
+          <p class="org"><a href="https://teachsense.onrender.com/docs/">AI classroom intelligence</a> · team UNEFET · frontend lead</p>
+          <p class="stack">React · TypeScript · Tailwind CSS v4 · Django Channels · WebSockets</p>
+          <ul class="points">
+            <li>Built the frontend and a real-time lecturer dashboard over WebSockets, with a ping/pong heartbeat for live session tracking.</li>
+            <li>Lecture upload, transcription, summaries and question generation; solved cross-origin deployment across Netlify and Render (CORS, cookies, auth).</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="head"><h3>TransactFlow</h3></div>
+          <p class="org">Payment-processing system · solo TechCrush capstone</p>
+          <p class="stack">Node.js · Express</p>
+          <ul class="points">
+            <li>Backend capstone for the TechCrush "Becoming a Backend Engineer" program on the Payaza fintech track.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="head"><h3>Madrasah result-sheet generator</h3></div>
+          <p class="org">For Ahlul Kitaab Was-Sunnah Academy</p>
+          <p class="stack">Python · Pillow</p>
+          <ul class="points">
+            <li>Renders Arabic report sheets (Noto Naskh Arabic), built as a reusable library.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="head"><h3>Earlier frontend work</h3></div>
+          <p class="org">AltSchool Africa projects</p>
+          <p class="stack">React · Vue · REST APIs · Paystack</p>
+          <ul class="points">
+            <li><a href="https://ecommercewebsitealtschool.netlify.app/">E-commerce store</a> with cart and Paystack test checkout; <a href="https://markdown-vuepp.netlify.app/">Markdown editor</a> with live preview in Vue; a Vue blog consuming a REST API.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">Education &amp; training</p>
+      <div class="edu">
+        <div class="entry filled">
+          <div class="head"><h3>B.Eng. Electronic &amp; Computer Engineering</h3></div>
+          <p class="org">Lagos State University (LASU)</p>
+          <p class="stack">300 level · expected graduation 2028</p>
+        </div>
+        <div class="entry filled">
+          <div class="head"><h3>Becoming a Backend Engineer</h3></div>
+          <p class="org">TechCrush</p>
+          <p class="stack">Fintech mentorship track with Payaza</p>
+        </div>
+        <div class="entry">
+          <div class="head"><h3>Frontend Engineering Diploma</h3></div>
+          <p class="org">AltSchool Africa</p>
+          <p class="stack">JavaScript, React, Vue, frontend architecture</p>
+        </div>
+        <div class="entry">
+          <div class="head"><h3>Web Development Training</h3></div>
+          <p class="org">Almattech Academy</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer><span>Ahmad Subair · ahmadsubair2005@gmail.com</span><span><b>◆</b> Circuits by day · Code by night</span><span>2 / 2</span></footer>
+</div>
+
+</body>
+</html>

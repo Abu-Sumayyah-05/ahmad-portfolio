@@ -54,16 +54,27 @@ export const CaseStudy = ({ project, index, ref }) => {
           </dl>
           {project.note && <p className="mt-4 text-sm text-ink-muted italic">{project.note}</p>}
 
-          {project.link && (
-            <a
-              href={project.link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-auto inline-flex w-fit items-center gap-2 border-b border-current pt-7 pb-0.5 font-semibold transition-colors hover:text-paper-accent"
-            >
-              {project.link.label} <span aria-hidden="true">↗</span>
-            </a>
-          )}
+          <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3 pt-7">
+            {/* Full case study page, when the project has one */}
+            {project.caseStudy && (
+              <a
+                href={project.caseStudy}
+                className="btn-primary inline-flex items-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold"
+              >
+                Read the case study <span aria-hidden="true">→</span>
+              </a>
+            )}
+            {project.link && (
+              <a
+                href={project.link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit items-center gap-2 border-b border-current pb-0.5 font-semibold transition-colors hover:text-paper-accent"
+              >
+                {project.link.label} <span aria-hidden="true">↗</span>
+              </a>
+            )}
+          </div>
         </div>
 
         {/* Visual: screenshot in a browser frame on a patterned panel.

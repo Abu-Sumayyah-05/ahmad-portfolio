@@ -14,6 +14,7 @@ createRoot(document.getElementById('root')).render(
 // has finished drawing (~1.3s after navigation), even if the app loaded faster.
 const MIN_INTRO_MS = 1300;
 const html = document.documentElement;
+if (window.location.hash) html.classList.add('render-all');
 
 requestAnimationFrame(() => {
   const wait = html.dataset.intro === 'play' ? Math.max(0, MIN_INTRO_MS - performance.now()) : 0;

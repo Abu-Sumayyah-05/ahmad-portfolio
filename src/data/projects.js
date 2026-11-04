@@ -55,6 +55,7 @@ export const featured = [
     ],
     image: '/projects/al-qanitaat.webp',
     link: { label: 'Visit Al Qanitaat', href: 'https://al-qanitaat.onrender.com/' },
+    caseStudy: '/work/al-qanitaat',
   },
   {
     id: 'dtbb',

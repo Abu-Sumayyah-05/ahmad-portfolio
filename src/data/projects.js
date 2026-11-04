@@ -30,7 +30,7 @@ export const featured = [
     summary:
       'An AI-powered WhatsApp assistant that helps Nigerian university students get lecture summaries, generate PDFs and prepare for exams.',
     details: [
-      ['Role', 'React frontend developer, since May 2025'],
+      ['Role', 'React frontend developer, since May 2026'],
       ['Stack', 'React · REST APIs · Netlify'],
       ['Built', 'The Campus Scholar portal (scholars.getquant.app), where students upload course materials and earn redeemable points; the admin portal; API endpoints wired into the UI page by page; and Welcome and OTP email templates built in React'],
       ['Also', 'Led the hosting migration from Render to Netlify'],
@@ -93,10 +93,8 @@ export const featured = [
 
 // Smaller projects, shown as a compact list under the case studies
 export const more = [
-  { title: 'TransactFlow', tag: 'Backend · Fintech', text: 'My solo TechCrush backend capstone: a payment-processing system built with Node.js and Express.' },
+  { title: 'TransactFlow', tag: 'Backend · Fintech', text: 'A payment-processing system built with Node.js and Express while learning backend engineering.' },
   { title: 'TeachSense', tag: 'Team · Real-time', text: 'Classroom intelligence system. I built the React/TypeScript frontend and the real-time lecturer dashboard over WebSockets, on a Django Channels backend.', href: 'https://teachsense.onrender.com/docs/' },
-  { title: 'Golden Emporium', tag: 'UI design', text: 'Luxury e-commerce interface styled as an auction catalogue: parchment, forest green and antique brass, with lot numbers and ink-stamp details.' },
-  { title: 'Madrasah result-sheet generator', tag: 'Python · Pillow', text: 'Renders Arabic report sheets for Ahlul Kitaab Was-Sunnah Academy, built as a reusable library.' },
   { title: 'eCommerce store', tag: 'React · Paystack', text: 'Product listing, cart and checkout with Paystack test payments, from my AltSchool frontend training.', href: 'https://ecommercewebsitealtschool.netlify.app/' },
 ];
 

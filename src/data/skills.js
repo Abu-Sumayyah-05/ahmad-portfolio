@@ -69,10 +69,9 @@ export const skillGroups = [
 ];
 
 export const journey = [
+  { when: 'May 2026 — Now', title: 'React Frontend Developer', org: 'Quant (getquant.app)', text: 'Built the Campus Scholar and admin portals and the email templates, and moved hosting from Render to Netlify.' },
   { when: 'Mar 2026 — Now', title: 'Frontend Developer', org: 'A4 Technologies, Lagos', text: 'Frontend implementation and UI integration lead on EduGear, a multi-tenant school management platform.' },
-  { when: 'May 2025 — Now', title: 'React Frontend Developer', org: 'Quant (getquant.app)', text: 'Built the Campus Scholar and admin portals and the email templates, and moved hosting from Render to Netlify.' },
-  { when: 'Training', title: 'Becoming a Backend Engineer', org: 'TechCrush × Payaza', text: 'Backend program on the fintech mentorship track. Solo capstone: TransactFlow, a payment-processing system.' },
   { when: 'Diploma', title: 'Frontend Engineering', org: 'AltSchool Africa', text: 'HTML, CSS, JavaScript, React, Vue and frontend application architecture.' },
   { when: 'Training', title: 'Web Development', org: 'Almattech Academy', text: 'Where I first learned to build for the web.' },
-  { when: 'Expected 2028', title: 'B.Eng. Electronic & Computer Engineering', org: 'Lagos State University (LASU)', text: '300 level. The "circuits by day" half of the story.' },
+  { when: 'Expected 2028', title: 'B.Eng. Electronic & Computer Engineering', org: 'Lagos State University (LASU)', text: '400 level. The "circuits by day" half of the story.' },
 ];

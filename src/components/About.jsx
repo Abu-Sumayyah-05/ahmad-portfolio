@@ -24,12 +24,12 @@ export const About = () => (
           </p>
           <p>
             Right now I'm a frontend developer at <b>A4 Technologies</b>, working on EduGear, and I've been building React
-            frontends for <b>Quant</b> since May 2025. Alongside commercial work, I build tools for the Muslim community,
-            from Islamic resource sites to madrasah tooling.
+            frontends for <b>Quant</b> since May 2026. Alongside commercial work, I build tools for the Muslim community,
+            like Al Qanitaat, an Islamic knowledge platform for Muslim women.
           </p>
           <p>
-            I'm also training as a backend engineer with <b>TechCrush</b> on the Payaza fintech track, digging into how
-            money actually moves: payment rails like NIP and RTGS, double-entry accounting and reconciliation.
+            I'm also deepening my backend skills and digging into how money actually moves: payment rails like NIP and
+            RTGS, double-entry accounting and reconciliation.
           </p>
         </Reveal>
 
@@ -39,7 +39,7 @@ export const About = () => (
             <div className="p-7">
               <span className="label-mono text-accent">By day</span>
               <h3 className="mt-2 mb-1 font-serif text-2xl">Circuits</h3>
-              <p className="text-sm text-muted">B.Eng. Electronic & Computer Engineering at LASU. 300 level, graduating 2028.</p>
+              <p className="text-sm text-muted">B.Eng. Electronic & Computer Engineering at LASU. 400 level, graduating 2028.</p>
             </div>
             <div className="border-t border-line p-7 sm:border-t-0 sm:border-l">
               <span className="label-mono text-accent">By night</span>

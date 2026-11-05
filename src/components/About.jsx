@@ -24,8 +24,9 @@ export const About = () => (
           </p>
           <p>
             Right now I'm a frontend developer at <b>A4 Technologies</b>, working on EduGear, and I've been building React
-            frontends for <b>Quant</b> since May 2026. Alongside commercial work, I build tools for the Muslim community,
-            like Al Qanitaat, an Islamic knowledge platform for Muslim women.
+            frontends for <b>Quant</b> since May 2026. My work spans education, fintech and client websites, and I'm open to
+            opportunities in any industry, whether full-time, contract or freelance. Outside of client work, I also build
+            community projects like Al Qanitaat, an Islamic knowledge platform for Muslim women.
           </p>
           <p>
             I'm also deepening my backend skills and digging into how money actually moves: payment rails like NIP and

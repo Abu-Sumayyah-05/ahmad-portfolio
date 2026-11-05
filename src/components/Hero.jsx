@@ -50,8 +50,8 @@ export const Hero = () => {
           </h1>
 
           <p className="fade-up mt-7 max-w-[34rem] text-lg text-muted" style={{ '--d': '.7s' }}>
-            For <b className="font-medium text-fg">schools</b>, <b className="font-medium text-fg">fintech</b> and the{' '}
-            <b className="font-medium text-fg">Muslim community</b>, designed for the reality of Nigerian users, where the
+            For <b className="font-medium text-fg">startups</b>, <b className="font-medium text-fg">businesses</b> and{' '}
+            <b className="font-medium text-fg">teams in any industry</b>, built to hold up in the real world, where the
             internet doesn't always cooperate.
           </p>
 

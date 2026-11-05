@@ -38,7 +38,9 @@ export const featured = [
     image: '/projects/quant-scholars.webp', // the Campus Scholar portal I built (the landing page is someone else's work)
     imageSize: [1280, 532],
     host: 'scholars.getquant.app',
-    link: { label: 'Visit getquant.app', href: 'https://getquant.app' },
+    note: 'The getquant.app landing page and the backend API were built by other members of the team.',
+    link: { label: 'Visit Campus Scholar', href: 'https://scholars.getquant.app' },
+    caseStudy: '/work/quant-scholars',
   },
   {
     id: 'al-qanitaat',

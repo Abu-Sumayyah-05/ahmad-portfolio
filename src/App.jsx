@@ -5,11 +5,13 @@ import { Cursor } from "./components/Cursor";
 
 // Case study pages are split into their own files, so the home page doesn't download them
 const AlQanitaatCase = lazy(() => import("./pages/AlQanitaatCase").then((m) => ({ default: m.AlQanitaatCase })));
+const QuantScholarsCase = lazy(() => import("./pages/QuantScholarsCase").then((m) => ({ default: m.QuantScholarsCase })));
 
 // A tiny router: the site has only a few pages, so a router library isn't worth its size.
 const routes = {
   "/": Home,
   "/work/al-qanitaat": AlQanitaatCase,
+  "/work/quant-scholars": QuantScholarsCase,
 };
 
 function App() {

@@ -47,7 +47,7 @@ export const Contact = () => {
 
     // Spam protection 1, the honeypot: a hidden "website" field people never see.
     // Bots fill in every field, so if it has a value we fake success and send nothing.
-    if (e.target.elements.website.value) {
+    if (e.target.elements.hp_field_x.value) {
       setStatus('sent');
       return;
     }
@@ -95,7 +95,9 @@ export const Contact = () => {
       } catch {
         // Storage blocked: the cooldown just won't apply in this browser
       }
-    } catch {
+    } catch (err) {
+      // Logged so a failed send can be diagnosed from the browser console
+      console.error('EmailJS send failed:', err);
       setStatus('error');
     }
   };
@@ -147,7 +149,8 @@ export const Contact = () => {
           <form onSubmit={submit} className="grid gap-8 border border-line bg-bg/60 p-6 backdrop-blur-sm sm:grid-cols-2 sm:p-10">
             <p className="label-mono text-accent sm:col-span-2">Or send a message</p>
             {/* Honeypot: hidden from people and screen readers, but bots fill it in */}
-            <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
+            {/* Named so browser autofill and password managers leave it alone (they target names like "website") */}
+            <input type="text" name="hp_field_x" tabIndex={-1} autoComplete="new-password" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
             <Field label="Your name" name="name" required value={form.name} onChange={update} autoComplete="name" />
             <Field label="Your email" name="email" type="email" required value={form.email} onChange={update} autoComplete="email" />
             <div className="sm:col-span-2">

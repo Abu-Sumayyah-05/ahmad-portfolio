@@ -21,12 +21,13 @@
   --ink: #141630; --ink-muted: #4b4d68; --paper-accent: #2c37a8;
   --deep: #1b2266; --on-deep: #f1ece2;
 }
-[data-theme="clay"] {
-  --bg: #1d120c; --bg-2: #2a1a10; --fg: #f6eadb; --muted: #c9ae95;
-  --accent: #e8683a; --accent-2: #ffb48a; --on-accent: #ffffff;
-  --paper: #f0e2cd; --paper-hi: #faf3e8; --paper-line: #d3b994;
-  --ink: #24150d; --ink-muted: #5f4636; --paper-accent: #2f45e0;
-  --deep: #8f3b1e; --on-deep: #fbefe2;
+/* The logo's own colours: its black background and white mark */
+[data-theme="mono"] {
+  --bg: #000000; --bg-2: #0e0e0e; --fg: #f4f4f4; --muted: #a3a3a3;
+  --accent: #ffffff; --accent-2: #8f8f8f; --on-accent: #000000;
+  --paper: #f2f2f2; --paper-hi: #ffffff; --paper-line: #cfcfcf;
+  --ink: #000000; --ink-muted: #555555; --paper-accent: #000000;
+  --deep: #161616; --on-deep: #ffffff;
 }
 [data-theme="signal"] {
   --bg: #f3f1ec; --bg-2: #e9e6de; --fg: #111111; --muted: #55554f;
@@ -236,6 +237,8 @@
   transform: translateY(101%);
   transition: transform .5s var(--ease);
 }
+/* In Mono the accent and text colour are both white, so the hover fill needs its own grey */
+[data-theme="mono"] .btn-primary::before { background: var(--accent-2); }
 .btn-primary:hover { color: var(--bg); }
 .btn-primary:hover::before { transform: none; }
 
@@ -308,20 +311,20 @@
 /* Measured heights per breakpoint. Close estimates keep anchor links (e.g. #contact)
    landing in the right place before the sections in between have rendered. */
 #about { contain-intrinsic-size: auto 1420px; }
-#work { contain-intrinsic-size: auto 6330px; }
+#work { contain-intrinsic-size: auto 7290px; }
 #skills { contain-intrinsic-size: auto 2650px; }
 #journey { contain-intrinsic-size: auto 1580px; }
 #contact { contain-intrinsic-size: auto 1265px; }
 @media (min-width: 768px) {
   #about { contain-intrinsic-size: auto 990px; }
-  #work { contain-intrinsic-size: auto 6435px; }
+  #work { contain-intrinsic-size: auto 7425px; }
   #skills { contain-intrinsic-size: auto 1715px; }
   #journey { contain-intrinsic-size: auto 1245px; }
   #contact { contain-intrinsic-size: auto 1135px; }
 }
 @media (min-width: 1024px) {
   #about { contain-intrinsic-size: auto 910px; }
-  #work { contain-intrinsic-size: auto 4160px; }
+  #work { contain-intrinsic-size: auto 4700px; }
   #skills { contain-intrinsic-size: auto 1405px; }
   #journey { contain-intrinsic-size: auto 1305px; }
   #contact { contain-intrinsic-size: auto 1315px; }

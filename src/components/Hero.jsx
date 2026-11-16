@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { profile } from '../data/site';
 import { useMagnetic } from '../hooks/useMagnetic';
 import { hasFinePointer, prefersReducedMotion } from '../lib/motion';
-import { Rosette } from './Rosette';
+import { Logo } from './Logo';
 
 export const Hero = () => {
   const emblem = useRef(null);
@@ -71,9 +71,9 @@ export const Hero = () => {
         </div>
 
         <div className="fade-up order-first mx-auto w-full max-w-[300px] sm:max-w-[380px] lg:order-none lg:max-w-[520px]" style={{ '--d': '.3s' }}>
-          <div ref={emblem} className="relative aspect-square transition-transform duration-300 ease-out">
-            <div className="core-glow absolute inset-[30%] rounded-full" />
-            <Rosette className="relative size-full" />
+          <div ref={emblem} className="relative grid aspect-square place-items-center transition-transform duration-300 ease-out">
+            <div className="core-glow absolute inset-[12%] rounded-full" />
+            <Logo className="relative h-[76%] w-auto text-fg" />
           </div>
         </div>
       </div>

@@ -74,6 +74,16 @@ export const CaseStudy = ({ project, index, ref }) => {
                 {project.link.label} <span aria-hidden="true">↗</span>
               </a>
             )}
+            {project.repo && (
+              <a
+                href={project.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit items-center gap-2 border-b border-current pb-0.5 font-semibold transition-colors hover:text-paper-accent"
+              >
+                View the code <span aria-hidden="true">↗</span>
+              </a>
+            )}
           </div>
         </div>
 

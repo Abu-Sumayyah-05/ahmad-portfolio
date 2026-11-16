@@ -45,7 +45,7 @@ public/            CV, favicon, share image, screenshots, robots.txt, sitemap.xm
 src/components/    page sections (Hero, About, Work, Skills, Journey, Contact, Footer)
                    plus building blocks (Rosette, ThemeSwitcher, Cursor, Reveal...)
 src/hooks/         useInView, useMagnetic
-src/index.css      the three palettes (Adire, Clay, Signal), animations and utilities
+src/index.css      the three palettes (Mono, Adire, Signal), animations and utilities
 ```
 
 ## Updating the CV

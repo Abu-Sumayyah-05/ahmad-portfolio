@@ -1,6 +1,6 @@
 // Featured case studies, in display order.
 // `kind` drives the label: 'company' | 'client' | 'team' | 'personal'.
-// Only real links go in `link`; leave it out for private work.
+// Only real links go in `link`; leave it out for private work. `repo` adds a "View the code" link.
 export const featured = [
   {
     id: 'edugear',
@@ -18,7 +18,7 @@ export const featured = [
     ],
     note: 'Backend (NestJS, Prisma, PostgreSQL) built by the lead developer.',
     image: '/projects/edugear.webp',
-    imageSize: [1280, 588], // real dashboard screenshot, wider than the default 16:10
+    imageSize: [1280, 698], // the edugear.ng landing page hero
     link: { label: 'Visit edugear.ng', href: 'https://edugear.ng' },
   },
   {
@@ -60,6 +60,26 @@ export const featured = [
     caseStudy: '/work/al-qanitaat',
   },
   {
+    id: 'transactflow',
+    title: 'TransactFlow',
+    kind: 'personal',
+    status: 'Live',
+    summary:
+      'A full-stack payment platform: customers pay and transfer money, while an operations console monitors, reconciles and blocks risky activity.',
+    details: [
+      ['Role', 'Built end to end: API, background worker, two mock banks, React app and deployment'],
+      ['Stack', 'Node.js · Express · PostgreSQL · Redis · React · Docker · Render'],
+      ['Built', 'Double-entry ledger in whole kobo, idempotent payments, signed webhooks, fraud scoring, bulk payouts and reconciliation that classifies every break'],
+      ['Challenge', 'Staying correct when a bank misbehaves: a double-tapped Pay charges once, a timeout settles on the real status, and a circuit breaker moves traffic to a backup bank'],
+    ],
+    note: 'Both banks are simulators built for the project, so failures can be switched on live. Free hosting: the first load can take about a minute.',
+    image: '/projects/transactflow-walkthrough-poster.webp',
+    // Captioned browser walkthrough of every flow (no sound). Loads only when someone presses play.
+    video: { src: '/projects/transactflow-walkthrough.mp4', poster: '/projects/transactflow-walkthrough-poster.webp', size: [1280, 720], duration: '4:42' },
+    link: { label: 'Visit TransactFlow', href: 'https://transactflow.onrender.com' },
+    repo: 'https://github.com/Abu-Sumayyah-05/transactflow-api',
+  },
+  {
     id: 'dtbb',
     title: "D'TBB Logistics & Consult",
     kind: 'client',
@@ -98,7 +118,6 @@ export const featured = [
 
 // Smaller projects, shown as a compact list under the case studies
 export const more = [
-  { title: 'TransactFlow', tag: 'Backend · Fintech', text: 'A payment-processing system built with Node.js and Express while learning backend engineering.' },
   { title: 'TeachSense', tag: 'Team · Real-time', text: 'Classroom intelligence system. I built the React/TypeScript frontend and the real-time lecturer dashboard over WebSockets, on a Django Channels backend.', href: 'https://teachsense.onrender.com/docs/' },
   { title: 'eCommerce store', tag: 'React · Paystack', text: 'Product listing, cart and checkout with Paystack test payments, from my AltSchool frontend training.', href: 'https://ecommercewebsitealtschool.netlify.app/' },
 ];

@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en" data-theme="adire">
+<html lang="en" data-theme="mono">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ahmad Subair (Abu Sumayyah) | Full-Stack Developer in Lagos</title>
     <meta name="description" content="Full-stack developer in Lagos building fast, reliable products for startups, businesses and teams in any industry. React, Next.js, TypeScript, Node.js and PostgreSQL." />
     <meta name="author" content="Ahmad Subair" />
-    <meta name="theme-color" content="#0d1130" />
+    <meta name="theme-color" content="#000000" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <link rel="canonical" href="https://ahmadsubair.netlify.app/" />
@@ -51,11 +51,11 @@
     <script>
       (function () {
         var html = document.documentElement;
-        var palette = 'adire';
+        var palette = 'mono';
         var skipIntro = false;
         try {
           var saved = localStorage.getItem('palette');
-          if (saved === 'adire' || saved === 'clay' || saved === 'signal') palette = saved;
+          if (saved === 'mono' || saved === 'adire' || saved === 'signal') palette = saved;
           skipIntro = sessionStorage.getItem('intro-seen') === '1';
         } catch (e) {}
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) skipIntro = true;

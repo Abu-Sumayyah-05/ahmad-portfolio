@@ -23,8 +23,8 @@ export const navItems = [
 ];
 
 export const palettes = [
+  { id: 'mono', label: 'Mono', swatch: ['#000000', '#ffffff'], themeColor: '#000000' },
   { id: 'adire', label: 'Adire', swatch: ['#0d1130', '#ff5a36'], themeColor: '#0d1130' },
-  { id: 'clay', label: 'Clay', swatch: ['#1d120c', '#e8683a'], themeColor: '#1d120c' },
   { id: 'signal', label: 'Signal', swatch: ['#f3f1ec', '#2b3bff'], themeColor: '#f3f1ec' },
 ];
 
